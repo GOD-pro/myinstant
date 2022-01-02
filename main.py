@@ -31,7 +31,7 @@ def download(name, url):
 a = int(input("No of pages to scrape :"))
 
 def geturl(no):
-return to_url.replace("*", no, 1)
+    return to_url.replace("*", no, 1)
 print(f"Starting Loop for {a} no. of pages .")
 for i in range(0, a):
     i=i+1
