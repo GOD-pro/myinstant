@@ -16,7 +16,7 @@ def download(name, url):
         print("\r" + f"Downloading : {name}")
         main_name = f"{name}.mp3"
         if main_name in os.listdir(dir):
-            main_name = name+f"({randrange(20)})+".mp3"
+            main_name = name+f"({randrange(20)})"+".mp3"
         r = requests.get(url)
         main_name = main_name.replace("/", "")                                                                                                                                                                                  
         open(f"{dir}/{main_name}", 'x')
