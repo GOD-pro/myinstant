@@ -8,28 +8,30 @@ import re
 dir = os.getcwd()+"/data"
 if not os.path.isdir(dir):
     os.mkdir(dir)
-to_url = f"https://www.myinstants.com/categories/memes/?page=*&name=memes"
+    to_url = f"https://www.myinstants.com/categories/memes/?page=*&name=memes"
 
 def download(name, url):
-    main_name = name.replace(".", "").replace("$", "").replace("%", "").replace("*", "").replace("^", "").replace("!", "").replace("/", "")
-    print("\r" + f"Downloading : {name}")
-    main_name = f"{name}.mp3"
-    def name():
-    if main_name in os.listdir(dir):
-        main_name = name+"(2)"+".mp3"
-    r = requests.get(url)
-    main_name = main_name.replace("/", "").replace("\", "")                                                                 
-                                                                                                                                                    
-    open(f"{dir}/{main_name}", 'x')
-    open(f"{dir}/{main_name}", 'wb').write(r.content)
+    try:
+        main_name = name.replace(".", "").replace("$", "").replace("%", "").replace("*", "").replace("^", "").replace("!", "").replace("/", "")
+        print("\r" + f"Downloading : {name}")
+        main_name = f"{name}.mp3"
+        if main_name in os.listdir(dir):
+            main_name = name+"(2)"+".mp3"
+            r = requests.get(url)
+            main_name = main_name.replace("/", "").replace("\", "")                                                                 
+                                                                                                                            
+        open(f"{dir}/{main_name}", 'x')
+        open(f"{dir}/{main_name}", 'wb').write(r.content)
 
-    print("\r" + f"Downloaded {name}") 
+        print("\r" + f"Downloaded {name}") 
+    except:
+        print(f"Could not download {name}")
 
 
 a = int(input("No of pages to scrape :"))
 
 def geturl(no):
-    return to_url.replace("*", no, 1)
+return to_url.replace("*", no, 1)
 print(f"Starting Loop for {a} no. of pages .")
 for i in range(0, a):
     i=i+1
@@ -45,13 +47,13 @@ for i in range(0, a):
         len_data = len(name_results)
     else:
         print(f"There was a error getting the data for page{i}")
-    
+
     if valid:
         for u in range(len_data):
             name_result = name_results[u]
             url_result = url_results[u]
             extract = name_result.get_text()
-            
+
             res = re.search(r'\'.*?\'', str(url_result)) 
             if res:
                 reuwu=res.group(0)
@@ -60,6 +62,6 @@ for i in range(0, a):
             print("\r" + main_url + "\n" + extract)   
             download(extract, main_url)
 
-            
+
     print("Saved to :"+dir)
-    print("Done [(0uO)]")
+print("Done [(0uO)]")
