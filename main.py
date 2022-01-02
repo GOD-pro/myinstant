@@ -3,7 +3,7 @@ import os
 import requests
 from bs4 import BeautifulSoup
 import re
-
+from random import randrange
 
 dir = os.getcwd()+"/data"
 if not os.path.isdir(dir):
@@ -16,9 +16,8 @@ def download(name, url):
         print("\r" + f"Downloading : {name}")
         main_name = f"{name}.mp3"
         if main_name in os.listdir(dir):
-            main_name = name+"(2)"+".mp3"
-            r = requests.get(url)
-        
+            main_name = name+f"({randrange(20)})+".mp3"
+        r = requests.get(url)
         main_name = main_name.replace("/", "")                                                                                                                                                                                  
         open(f"{dir}/{main_name}", 'x')
         open(f"{dir}/{main_name}", 'wb').write(r.content)
