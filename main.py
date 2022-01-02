@@ -11,7 +11,7 @@ if not os.path.isdir(dir):
 to_url = f"https://www.myinstants.com/categories/memes/?page=*&name=memes"
 
 def download(name, url):
-    main_name = name.replace(".", "").replace("$", "").replace("%", "").replace("*", "").replace("^", "").replace("!", "").replace("/", "").replace("\", "")
+    main_name = name.replace(".", "").replace("$", "").replace("%", "").replace("*", "").replace("^", "").replace("!", "").replace("/", "")
     print("\r" + f"Downloading : {name}")
     main_name = f"{name}.mp3"
     def name():
