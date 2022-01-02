@@ -22,11 +22,10 @@ def download(name, url):
         main_name = main_name.replace("/", "")                                                                                                                                                                                  
         open(f"{dir}/{main_name}", 'x')
         open(f"{dir}/{main_name}", 'wb').write(r.content)
-
         print("\r" + f"Downloaded {name}") 
-    except:
+    except Exception as e:
         print(f"Could not download {name}")
-
+        print(e)
 
 a = int(input("No of pages to scrape :"))
 
