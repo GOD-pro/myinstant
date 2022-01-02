@@ -18,8 +18,8 @@ def download(name, url):
         if main_name in os.listdir(dir):
             main_name = name+"(2)"+".mp3"
             r = requests.get(url)
-            main_name = main_name.replace("/", "").replace("\", "")                                                                 
-                                                                                                                            
+        
+        main_name = main_name.replace("/", "")                                                                                                                                                                                  
         open(f"{dir}/{main_name}", 'x')
         open(f"{dir}/{main_name}", 'wb').write(r.content)
 
