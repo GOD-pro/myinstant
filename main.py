@@ -11,13 +11,15 @@ if not os.path.isdir(dir):
 to_url = f"https://www.myinstants.com/categories/memes/?page=*&name=memes"
 
 def download(name, url):
-    main_name = name.replace(".", "").replace("$", "").replace("%", "").replace("*", "").replace("^", "").replace("!", "")
+    main_name = name.replace(".", "").replace("$", "").replace("%", "").replace("*", "").replace("^", "").replace("!", "").replace("/", "").replace("\", "")
     print("\r" + f"Downloading : {name}")
     main_name = f"{name}.mp3"
-    
+    def name():
     if main_name in os.listdir(dir):
         main_name = name+"(2)"+".mp3"
     r = requests.get(url)
+    main_name = main_name.replace("/", "").replace("\", "")                                                                 
+                                                                                                                                                    
     open(f"{dir}/{main_name}", 'x')
     open(f"{dir}/{main_name}", 'wb').write(r.content)
 
