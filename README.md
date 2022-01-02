@@ -1,9 +1,9 @@
 # myinstant
 myinstant.com website scraper
 Required Module:
-  BeautifulSoup
-  requests
-  re
+  BeautifulSoup,
+  requests,
+  re,
   os
   
  
