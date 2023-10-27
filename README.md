@@ -7,8 +7,8 @@ Required Module:
   os
   
  
-"Do not distrubute the optained files"
-"This is for educational purpose only !"
+"Do not distrubute the obtained files"
+"This is for educational purposes only !"
 
 Install modules:
   pip install beautifulsoup4
